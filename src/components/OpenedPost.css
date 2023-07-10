@@ -1,0 +1,27 @@
+.openp-root{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(105, 105, 105, 0.01);
+  z-index: 1000;
+}
+.openp-closebtn{
+  position: fixed;
+  z-index: 1001;
+  right: 25px;
+  top: 25px;
+  height: 50px;
+  width: 50px;
+}
+.openp-container{
+  z-index: 1100;
+  position: relative;
+  border: white 1px solid;
+  max-width: 1046px;
+  max-height: 784px;
+  width: 80%;
+  height: 90%;
+  background-color: #161616;
+  margin: auto;
+  margin-top: 100px;
+}

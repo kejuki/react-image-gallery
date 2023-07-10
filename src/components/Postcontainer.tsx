@@ -1,25 +1,10 @@
 import { useEffect, useState } from "react"
 import { useInfiniteQuery } from "react-query"
 import { getPostsPaginated } from "../api/postsRoutes"
+import "./OpenedPost.css"
 import test from "../assets/test.jpg"
-
-interface Post {
-  id: string,
-  userId: string,
-  author: string,
-  timestamp: number,
-  imgurl: string,
-  likes: number,
-  title: string,
-  tags: [string]
-  comments: [{
-    userId: string,
-    commentId: string,
-    user: string,
-    comment: string,
-    timestamp: number,
-  }]
-}
+import { Post } from "../types/post"
+import SinglePost from "./SinglePost"
 
 
 function Postcontainer(){
@@ -40,12 +25,21 @@ function Postcontainer(){
       }
   })
 
+  const [showMore, setShowMore] = useState<boolean>(false)
+  const [showMoreContent, setShowMoreContent] = useState<Post | null>(null)
+
   if (status === "loading") return <h1>Loading...</h1>
   if (status === "error") return <h1>{JSON.stringify(error)}</h1>
 
   console.log(data)
   return(
     <div id='post-wrapper'>
+      {showMore ? 
+        <div onClick={()=>setShowMore(false)} className="openp-root">
+          <button onClick={()=>setShowMore(false)} className="openp-closebtn">X</button>
+          <SinglePost {...showMoreContent}></SinglePost>
+        </div> 
+      : null}
       {data?.pages?.map((page, i) => (
         <div key={i}>
           {page.posts.map((post:Post) => (
@@ -86,7 +80,7 @@ function Postcontainer(){
                       <div key={i}>{comment.user} {comment.comment}</div>
                       )
                     )}
-                    <button >show more</button>
+                    <button onClick={()=>{setShowMore(true); setShowMoreContent(post)}}>show more</button>
                   </div>
                 </div>
               </div>
