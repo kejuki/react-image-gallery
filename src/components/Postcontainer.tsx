@@ -5,7 +5,7 @@ import "./OpenedPost.css"
 import test from "../assets/test.jpg"
 import { Post } from "../types/post"
 import SinglePost from "./SinglePost"
-
+import testavatar from "../assets/testavatar.jpg"
 
 function Postcontainer(){
   const { 
@@ -43,17 +43,19 @@ function Postcontainer(){
       {data?.pages?.map((page, i) => (
         <div key={i}>
           {page.posts.map((post:Post) => (
-            <article className="post-post" key={post.id}>
+            <article className="post-post" key={post.postId}>
               <div>
                 <header className="post-header">
-                  <div className="post-avatar">
-                    <img></img>
+                  <div className="post-avatar-container">
+                    <img className="post-avatar" src={testavatar}></img>
                   </div>
-                  <div className="post-author">
-                    {post.author}
-                  </div>
-                  <div className="post-timestamp">
-                    {new Date(post.timestamp).toDateString()}
+                  <div className="post-author-timestamp-container">
+                    <div className="post-author">
+                      {post.author}
+                    </div>
+                    <div className="post-timestamp">
+                      {new Date(post.timestamp).toDateString()}
+                    </div>
                   </div>
                 </header>
                 <div>
@@ -77,7 +79,7 @@ function Postcontainer(){
                   </div>
                   <div className="post-comments">
                     {post.comments.slice(0,2).map((comment, i)=>(
-                      <div key={i}>{comment.user} {comment.comment}</div>
+                      <div key={i}>{comment.username} {comment.comment}</div>
                       )
                     )}
                     <button onClick={()=>{setShowMore(true); setShowMoreContent(post)}}>show more</button>

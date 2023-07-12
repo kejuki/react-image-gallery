@@ -1,5 +1,5 @@
 export interface Post {
-  id: string,
+  postId: string,
   userId: string,
   author: string,
   timestamp: number,
@@ -10,7 +10,7 @@ export interface Post {
   comments: [{
     userId: string,
     commentId: string,
-    user: string,
+    username: string,
     comment: string,
     timestamp: number,
   }]

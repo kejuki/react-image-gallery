@@ -2,8 +2,9 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(105, 105, 105, 0.01);
-  z-index: 1000;
+  background-color: rgba(46, 46, 46, 0.171);
+  z-index: 555;
+  overflow: hidden;
 }
 .openp-closebtn{
   position: fixed;
@@ -14,14 +15,33 @@
   width: 50px;
 }
 .openp-container{
+  display: flex;
+  flex-direction: row;
   z-index: 1100;
   position: relative;
   border: white 1px solid;
-  max-width: 1046px;
-  max-height: 784px;
-  width: 80%;
+  max-height: 650px;
+  width: 950px;
   height: 90%;
   background-color: #161616;
   margin: auto;
   margin-top: 100px;
+}
+.openp-comment-container{
+  width: 350px;
+}
+.openp-header{
+  width: inherit;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid white;
+}
+.openp-img{
+  height: 650px;
+  width: 600px;
+  object-fit: cover;
+}
+.openp-avatar{
+  width: 50px;
+  height: 50px;
 }
