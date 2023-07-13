@@ -1,7 +1,6 @@
-import { Post } from "../types/post"
+import { Post, Comments } from "../types/post"
 import test from "../assets/test.jpg"
 import testavatar from "../assets/testavatar.jpg"
-
 
 const SinglePost = ({currentPost} : {currentPost: Post | undefined}) => {
   return(
@@ -13,6 +12,20 @@ const SinglePost = ({currentPost} : {currentPost: Post | undefined}) => {
         <div className="openp-header">
           <img className="openp-avatar" src={testavatar}></img>
           <div className="openp-author"> {currentPost?.author} </div>
+        </div>
+        <div className="openp-comments">
+          {currentPost?.comments?.map((comment:Comments) => 
+            <div key={comment.commentId}>
+              {comment.username} {comment.comment}
+            </div>
+          )}
+        </div>
+        <div>
+          <button>like</button>
+        </div>
+        <div>
+            <textarea placeholder="Add a comment..."></textarea>
+            <button>post</button>
         </div>
       </div>
     </div>

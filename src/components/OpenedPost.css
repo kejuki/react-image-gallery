@@ -19,7 +19,6 @@
   flex-direction: row;
   z-index: 1100;
   position: relative;
-  border: white 1px solid;
   max-height: 650px;
   width: 950px;
   height: 90%;
@@ -34,7 +33,7 @@
   width: inherit;
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid gray;
 }
 .openp-img{
   height: 650px;

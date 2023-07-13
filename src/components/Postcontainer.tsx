@@ -7,7 +7,7 @@ import { Post } from "../types/post"
 import SinglePost from "./SinglePost"
 import testavatar from "../assets/testavatar.jpg"
 
-function Postcontainer(){
+const Postcontainer = () => {
   const { 
     status,
     error,
@@ -37,7 +37,7 @@ function Postcontainer(){
       {showMore ? 
         <div onClick={()=>setShowMore(false)} className="openp-root">
           <button onClick={()=>setShowMore(false)} className="openp-closebtn">X</button>
-          <SinglePost currentPost={currentPost}></SinglePost>
+          <SinglePost currentPost={currentPost}/>
         </div> 
       : null}
       {data?.pages?.map((page, i) => (
