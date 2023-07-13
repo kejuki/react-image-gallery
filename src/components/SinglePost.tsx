@@ -2,7 +2,8 @@ import { Post } from "../types/post"
 import test from "../assets/test.jpg"
 import testavatar from "../assets/testavatar.jpg"
 
-function SinglePost(post:Post) {
+
+const SinglePost = ({currentPost} : {currentPost: Post | undefined}) => {
   return(
     <div onClick={e => e.stopPropagation()} className="openp-container">
       <div className="openp-img-container">
@@ -11,7 +12,7 @@ function SinglePost(post:Post) {
       <div className="openp-comment-container">
         <div className="openp-header">
           <img className="openp-avatar" src={testavatar}></img>
-          <div className="openp-author"> {post.author} </div>
+          <div className="openp-author"> {currentPost?.author} </div>
         </div>
       </div>
     </div>

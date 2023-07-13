@@ -26,7 +26,7 @@ function Postcontainer(){
   })
 
   const [showMore, setShowMore] = useState<boolean>(false)
-  const [showMoreContent, setShowMoreContent] = useState<Post | null>(null)
+  const [currentPost, setCurrentPost] = useState<Post | undefined>(undefined)
 
   if (status === "loading") return <h1>Loading...</h1>
   if (status === "error") return <h1>{JSON.stringify(error)}</h1>
@@ -37,7 +37,7 @@ function Postcontainer(){
       {showMore ? 
         <div onClick={()=>setShowMore(false)} className="openp-root">
           <button onClick={()=>setShowMore(false)} className="openp-closebtn">X</button>
-          <SinglePost {...showMoreContent}></SinglePost>
+          <SinglePost currentPost={currentPost}></SinglePost>
         </div> 
       : null}
       {data?.pages?.map((page, i) => (
@@ -72,17 +72,17 @@ function Postcontainer(){
                     <div className="post-title-author">{post.author}</div>
                     <div className="post-title">
                       {post.title} 
-                      {post.tags.map((tag) => {
+                      {post.tags?.map((tag) => {
                         return(" #" + tag)
                       })}
                     </div>
                   </div>
                   <div className="post-comments">
-                    {post.comments.slice(0,2).map((comment, i)=>(
+                    {post.comments?.slice(0,2).map((comment, i)=>(
                       <div key={i}>{comment.username} {comment.comment}</div>
                       )
                     )}
-                    <button onClick={()=>{setShowMore(true); setShowMoreContent(post)}}>show more</button>
+                    <button onClick={()=>{setShowMore(true); setCurrentPost(post)}}>show more</button>
                   </div>
                 </div>
               </div>
