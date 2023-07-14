@@ -14,8 +14,8 @@ const SinglePost = ({currentPost} : {currentPost: Post | undefined}) => {
           <div className="openp-author"> {currentPost?.author} </div>
         </div>
         <div className="openp-comments">
-          {currentPost?.comments?.map((comment:Comments) => 
-            <div key={comment.commentId}>
+          {currentPost?.comments?.map((comment:Comments, i) => 
+            <div key={i}>
               {comment.username} {comment.comment}
             </div>
           )}
