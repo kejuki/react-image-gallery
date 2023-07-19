@@ -3,7 +3,7 @@ import Postcontainer from './Postcontainer'
 
 function MainCol(){
   return(
-    <main>
+    <main id='maincol'>
       <Postcontainer/>
     </main>
   )

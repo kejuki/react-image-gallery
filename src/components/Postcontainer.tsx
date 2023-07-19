@@ -4,10 +4,11 @@ import { getPostsPaginated } from "../api/postsRoutes"
 import "./OpenedPost.css"
 import test from "../assets/test.jpg"
 import { Post } from "../types/post"
-import SinglePost from "./SinglePost"
+import OpenedPost from "./OpenedPost"
 import testavatar from "../assets/testavatar.jpg"
 
 const Postcontainer = () => {
+  //useInfiniteQuery hook from react query loads posts paginated when fetchNewPage is called
   const { 
     status,
     error,
@@ -28,18 +29,30 @@ const Postcontainer = () => {
   const [showMore, setShowMore] = useState<boolean>(false)
   const [currentPost, setCurrentPost] = useState<Post | undefined>(undefined)
 
+  useEffect(()=>{//doesnt work as intended
+    const maincol = document.getElementById('maincol');
+    if(showMore){
+      maincol!.style.position = 'fixed'
+      maincol!.style.overflowY = 'scroll'
+    } else {
+      maincol!.style.position = 'static'
+      maincol!.style.overflowY = 'hidden'
+    }
+  },[showMore])
+
   if (status === "loading") return <h1>Loading...</h1>
   if (status === "error") return <h1>{JSON.stringify(error)}</h1>
 
   console.log(data)
   return(
     <div id='post-wrapper'>
-      {showMore ? 
+      {showMore ? //shows a detailed post when clicking show more
         <div onClick={()=>setShowMore(false)} className="openp-root">
           <button onClick={()=>setShowMore(false)} className="openp-closebtn">X</button>
-          <SinglePost currentPost={currentPost}/>
+          <OpenedPost currentPost={currentPost}/>
         </div> 
       : null}
+      
       {data?.pages?.map((page, i) => (
         <div key={i}>
           {page.posts.map((post:Post) => (

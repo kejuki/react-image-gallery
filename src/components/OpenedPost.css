@@ -22,12 +22,16 @@
   max-height: 650px;
   width: 950px;
   height: 90%;
-  background-color: #161616;
+  background-color: #111111;
   margin: auto;
   margin-top: 100px;
 }
 .openp-comment-container{
   width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 .openp-header{
   width: inherit;
@@ -43,4 +47,22 @@
 .openp-avatar{
   width: 50px;
   height: 50px;
+}
+.openp-header-and-comments-container{
+  display:flex;
+  flex-direction: column;
+  width: inherit;
+}
+.openp-comment-bottom{
+  display: flex;
+  flex-direction: column;
+}
+.openp-add-comment-container{
+  display: flex;
+  align-items: stretch;
+}
+.openp-textarea{
+  width: 300px;
+  height: 40px;
+  resize: none;
 }
