@@ -1,5 +1,5 @@
 import MainCol from './components/MainCol'
-import './Sidebar.css'
+import './App.css'
 import { Route, Routes, Link } from 'react-router-dom'
 
 function App() {

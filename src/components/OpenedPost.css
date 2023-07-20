@@ -1,57 +1,50 @@
 .openp-root{
   position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(46, 46, 46, 0.171);
-  z-index: 555;
-  overflow: hidden;
+  inset:0;
+  background-color: rgba(4,4,4,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .openp-closebtn{
-  position: fixed;
-  z-index: 1001;
-  right: 25px;
-  top: 25px;
-  height: 50px;
-  width: 50px;
+  position:fixed;
+  width:50px;
+  height:50px;
+  right:50px;
+  top:50px
 }
 .openp-container{
   display: flex;
-  flex-direction: row;
-  z-index: 1100;
-  position: relative;
-  max-height: 650px;
-  width: 950px;
-  height: 90%;
-  background-color: #111111;
-  margin: auto;
-  margin-top: 100px;
+  max-height: 600px;
+  min-height: 30vh;
+  max-width: 900px;
+  min-width: 40vw;
 }
-.openp-comment-container{
-  width: 350px;
+.openp-comment-container,
+.openp-header-and-comments-container{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  background-color: #161616;
+  min-width: 35%;
+  max-width: 300px;
 }
+
+
+
 .openp-header{
-  width: inherit;
   display: flex;
-  flex-direction: row;
-  border-bottom: 1px solid gray;
-}
-.openp-img{
-  height: 650px;
-  width: 600px;
-  object-fit: cover;
+  align-items: center
 }
 .openp-avatar{
   width: 50px;
   height: 50px;
 }
-.openp-header-and-comments-container{
-  display:flex;
-  flex-direction: column;
-  width: inherit;
+.openp-img,
+.openp-img-container{
+  max-height: 600px;
+  min-height: 30vh;
+  max-width: 600px;
 }
 .openp-comment-bottom{
   display: flex;
@@ -59,10 +52,12 @@
 }
 .openp-add-comment-container{
   display: flex;
-  align-items: stretch;
+  justify-content: space-between
 }
 .openp-textarea{
-  width: 300px;
-  height: 40px;
+  width: 80%;
   resize: none;
+}
+.openp-add-comment-btn{
+  width: 20%;
 }

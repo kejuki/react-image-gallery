@@ -2,7 +2,7 @@ import './MainCol.css'
 import Postcontainer from './Postcontainer'
 
 function MainCol(){
-  return(
+  return( 
     <main id='maincol'>
       <Postcontainer/>
     </main>

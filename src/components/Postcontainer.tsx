@@ -32,11 +32,9 @@ const Postcontainer = () => {
   useEffect(()=>{//doesnt work as intended
     const maincol = document.getElementById('maincol');
     if(showMore){
-      maincol!.style.position = 'fixed'
-      maincol!.style.overflowY = 'scroll'
+      maincol!.style.top = '0'
     } else {
-      maincol!.style.position = 'static'
-      maincol!.style.overflowY = 'hidden'
+      maincol!.style.top = '0'
     }
   },[showMore])
 
