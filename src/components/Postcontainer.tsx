@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import { useInfiniteQuery } from "react-query"
 import { getPostsPaginated } from "../api/postsRoutes"
-import "./OpenedPost.css"
+import "../css/MainCol.css"
 import test from "../assets/test.jpg"
 import { Post } from "../types/post"
 import OpenedPost from "./OpenedPost"
 import testavatar from "../assets/testavatar.jpg"
 
 const Postcontainer = () => {
-  //useInfiniteQuery hook from react query loads posts paginated when fetchNewPage is called
+  //useInfiniteQuery hook from react query loads posts paginated initially and when fetchNewPage is called
   const { 
     status,
     error,

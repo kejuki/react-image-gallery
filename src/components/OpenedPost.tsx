@@ -1,4 +1,5 @@
 import { Post, Comments } from "../types/post"
+import '../css/OpenedPost.css'
 import test from "../assets/test.jpg"
 import testavatar from "../assets/testavatar.jpg"
 
