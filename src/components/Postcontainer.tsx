@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useInfiniteQuery } from "react-query"
 import { getPostsPaginated } from "../api/postsRoutes"
 import "../css/MainCol.css"
@@ -15,7 +15,7 @@ const Postcontainer = () => {
     data,
     isFetching,
     hasNextPage,
-    fetchNextPage, 
+    fetchNextPage,
     } = useInfiniteQuery(
       "posts", 
       getPostsPaginated, {
@@ -28,15 +28,6 @@ const Postcontainer = () => {
 
   const [showMore, setShowMore] = useState<boolean>(false)
   const [currentPost, setCurrentPost] = useState<Post | undefined>(undefined)
-
-  useEffect(()=>{//doesnt work as intended
-    const maincol = document.getElementById('maincol');
-    if(showMore){
-      maincol!.style.top = '0'
-    } else {
-      maincol!.style.top = '0'
-    }
-  },[showMore])
 
   if (status === "loading") return <h1>Loading...</h1>
   if (status === "error") return <h1>{JSON.stringify(error)}</h1>
