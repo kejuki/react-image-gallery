@@ -1,9 +1,11 @@
 #profile-wrapper{
   margin-top: 40px;
   width: 90%;
+  max-width: 1000px;
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .profile-header{
   display: flex;
@@ -42,4 +44,24 @@
 }
 .profile-realname{
   font-weight: bold;
+}
+.profile-posts{
+  margin-top: 100px;
+}
+.profile-post{
+  display: flex;
+  justify-content: center;
+  width:33%;
+}
+.profile-posts-cotainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  row-gap: 20px;
+  flex-grow: 2;
+}
+.profile-post-image{
+  width:250px;
+  height:250px;
 }
