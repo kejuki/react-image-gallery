@@ -1,6 +1,8 @@
 import { getUser } from "../api/profileRoutes"
 import { useQuery, useInfiniteQuery } from 'react-query'
+import { useState } from "react"
 import { getPostsPaginatedByuserId } from "../api/postsRoutes"
+import OpenedPost from "./OpenedPost"
 import testavatar from "../assets/testavatar.jpg"
 import test from "../assets/test.jpg"
 import '../css/profile.css'
@@ -31,10 +33,20 @@ function Profile(){
       }
   })
 
+  const [showMore, setShowMore] = useState<boolean>(false)
+  const [currentPost, setCurrentPost] = useState<Post | undefined>(undefined)
+
+  if (user.status === "error") return (<div>Something went wrong...</div>)
   if (user.status === "loading") return (<div>loading...</div>)
 
   return(
     <div id="profile-wrapper">
+      {showMore ? //shows a detailed post when clicking show more
+        <div onClick={()=>setShowMore(false)} className="openp-root">
+          <button onClick={()=>setShowMore(false)} className="openp-closebtn">X</button>
+          <OpenedPost currentPost={currentPost}/>
+        </div> 
+      : null}
       <div className="profile-header">
         <div className="profile-avatar-container">
           <img className="profile-avatar" src={testavatar}></img>
@@ -59,9 +71,8 @@ function Profile(){
           <div key={i} className="profile-posts-cotainer">
             {page?.posts?.map((post: Post)=>(
               <article key={post.postId} className="profile-post">
-                <div>
-                  <img className="profile-post-image" src={test}></img>
-                </div>
+                <div className="profile-post-cover" onClick={()=>{setShowMore(true); setCurrentPost(post)}}></div>
+                <img className="profile-post-image" src={test}></img>
               </article>
             ))}
           </div>

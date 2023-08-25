@@ -1,11 +1,8 @@
 #profile-wrapper{
-  margin-top: 40px;
-  width: 90%;
-  max-width: 1000px;
+  margin-top: 30px;
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
 }
 .profile-header{
   display: flex;
@@ -13,6 +10,7 @@
   justify-content: space-around;
 }
 .profile-header{
+  max-width: 700px;
   display: flex;
   align-items: center
 }
@@ -47,21 +45,33 @@
 }
 .profile-posts{
   margin-top: 100px;
+  max-width: 1000px;
 }
 .profile-post{
   display: flex;
   justify-content: center;
-  width:33%;
+  width: 290px;
+  height: 290px;
 }
 .profile-posts-cotainer{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  row-gap: 20px;
+  justify-content: center;
   flex-grow: 2;
 }
 .profile-post-image{
-  width:250px;
-  height:250px;
+  width:280px;
+  height:280px;
+}
+.profile-post-cover{
+  width: 280px;
+  height: 280px;
+  position: absolute;
+  z-index: 88;
+}
+.profile-post-cover:hover{
+  background-color: rgba(111, 111, 111, 0.1);
+  cursor: pointer;
+  
 }
