@@ -17,7 +17,7 @@ function App() {
         <Link to='/profile' className="sidebar-element">Profile</Link>
         etc
       </nav>
-      <main id='maincol'>
+      <main onScroll={() => console.log("asd")}>
         <Routes>
           <Route path='/' element={<Postcontainer />} />
           <Route path='/profile' element={<Profile />} />
